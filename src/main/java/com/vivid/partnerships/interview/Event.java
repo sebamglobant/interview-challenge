@@ -6,5 +6,5 @@ public class Event {
     public Integer id;
     public String name;
     public Date date;
-    public Venue venue;
+    public Integer venue_id;
 }

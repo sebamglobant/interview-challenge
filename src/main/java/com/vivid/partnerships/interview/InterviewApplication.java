@@ -23,11 +23,36 @@ public class InterviewApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... strings) throws Exception {
+
+		this.createTables();
+		this.insertSartedData();
+	}
+
+	private void createTables() {
+		LOGGER.info("Creating venues table");
+		jdbcTemplate.execute("CREATE TABLE venues(" +
+				"id SERIAL primary key," +
+				"name VARCHAR(50)," +
+				"city VARCHAR(50)," +
+				"state VARCHAR(50));");
+
 		LOGGER.info("Creating events table");
 
 		jdbcTemplate.execute("CREATE TABLE events(" +
-				"id SERIAL, name VARCHAR(255), date DATE)");
+				"id SERIAL," +
+				"venue_id INTEGER," +
+				"name VARCHAR(255), " +
+				"date DATE," +
+				"CONSTRAINT venue_id_fk FOREIGN KEY (venue_id) REFERENCES venues(id));");
+	}
 
-		jdbcTemplate.update("INSERT INTO events(name, date) VALUES (?,?)", "Chicago White Sox vs. Chicago Cubs", new Date());
+	private void insertSartedData() {
+		LOGGER.info("Inserting data into venues table");
+		jdbcTemplate.update("INSERT INTO venues (name, city, state) VALUES (?,?,?)",
+				"Wrigley Field", "Chicago", "IL");
+
+		LOGGER.info("Inserting data into events table");
+		jdbcTemplate.update("INSERT INTO events (venue_id, name, date) VALUES (?,?,?)",
+				1, "Chicago White Sox vs. Chicago Cubs", new Date());
 	}
 }
