@@ -16,6 +16,9 @@ public class EventService {
     }
 
      public List<Event> getEvents() {
-         return jdbcTemplate.query("SELECT * FROM events", new EventRowMapper());
+         return jdbcTemplate.query("SELECT e.id, e.date, e.name, v.id as venue_id, v.name as venue_name," +
+                 "v.city as venue_city, v.state as venue_state " +
+                 "FROM events e INNER JOIN venues v " +
+                 "WHERE e.venue_id = v.id", new EventRowMapper());
     }
 }
