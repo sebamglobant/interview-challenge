@@ -32,18 +32,20 @@ export class AppComponent implements OnInit {
   }
 
   onSubmitEvent(eventForm: NgForm) {
-    console.log(eventForm);
-    let event = new Event();
-    event.name = eventForm.value.eventName;
-    event.date = new Date(
-      eventForm.value.eventDate.year,
-      eventForm.value.eventDate.month,
-      eventForm.value.eventDate.day);
-    event.venue.name = eventForm.value.venueName;
-    event.venue.city = eventForm.value.eventCity;
-    event.venue.state = eventForm.value.eventState;
 
-    this.onAddEvent(event)
+    if(eventForm.valid) {
+      let event = new Event();
+      event.name = eventForm.value.eventName;
+      event.date = new Date(
+        eventForm.value.eventDate.year,
+        eventForm.value.eventDate.month,
+        eventForm.value.eventDate.day);
+      event.venue.name = eventForm.value.venueName;
+      event.venue.city = eventForm.value.eventCity;
+      event.venue.state = eventForm.value.eventState;
+
+      this.onAddEvent(event)
+    }
   }
 
   onAddEvent(event: Event) {
