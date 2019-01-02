@@ -26,3 +26,14 @@ build/
 bin/
 classes/
 
+# ANGULAR
+# compiled output
+src/main/web/dist
+src/main/web/tmp
+src/main/web/out-tsc
+
+# dependencies
+src/main/web/node_modules
+
+#build
+src/main/resources/*
