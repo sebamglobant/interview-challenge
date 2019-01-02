@@ -3,6 +3,7 @@ package com.vivid.partnerships.interview;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,7 @@ public class EventController {
         this.eventService = eventService;
     }
 
+    @CrossOrigin(origins = {"*"})
     @GetMapping("/events")
     public List<Event> getEvents() {
         List<Event> events = eventService.getEvents();
@@ -28,6 +30,7 @@ public class EventController {
         return events;
     }
 
+    @CrossOrigin(origins = {"*"})
     @GetMapping("/insertEvent")
     public boolean insertEvent() {
         Venue venue = new Venue();

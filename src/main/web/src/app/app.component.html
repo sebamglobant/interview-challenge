@@ -1,8 +1,56 @@
-
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      <h1>Vivid Seats</h1>
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col">
+          <h2>Events list</h2>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div *ngIf="!events">
+            <p>No events are loaded.</p>
+          </div>
+          <div *ngIf="events">
+            <table class="table table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Venue</th>
+                  <th scope="col">City</th>
+                  <th scope="col">State</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let event of events">
+                  <td>{{event.id}}</td>
+                  <td>{{event.name}}</td>
+                  <td>{{event.date}}</td>
+                  <td>{{event.venue.name}}</td>
+                  <td>{{event.venue.city}}</td>
+                  <td>{{event.venue.state}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="onGetEvents()">Get Events</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
