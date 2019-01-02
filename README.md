@@ -39,7 +39,7 @@ On any system with the JDK installed, running the application from the command l
 Best of luck!
 
 # how it works
-This project in build with gradle, so can run in the root folder: 
+This project in build with gradle, so you can run in the project's root folder: 
 
 ```
 ./gradlew bootRun
