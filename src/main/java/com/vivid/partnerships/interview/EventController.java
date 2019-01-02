@@ -3,10 +3,7 @@ package com.vivid.partnerships.interview;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -31,18 +28,20 @@ public class EventController {
     }
 
     @CrossOrigin(origins = {"*"})
-    @GetMapping("/insertEvent")
-    public boolean insertEvent() {
+    @PostMapping("/addEvent")
+    public boolean insertEvent(@RequestBody() Event event) {
+
+        LOGGER.info(event.name);
         Venue venue = new Venue();
         venue.name = "RED BULL STADIUM";
         venue.city = "New York";
         venue.state = "NY";
 
-        Event event = new Event();
-        event.name = "MSI International";
-        event.date = new Date();
-        event.venue = venue;
+        Event _event = new Event();
+        _event.name = "MSI International";
+        _event.date = new Date();
+        _event.venue = venue;
 
-        return eventService.insertEvent(event) > 0;
+        return eventService.insertEvent(_event) > 0;
     }
 }

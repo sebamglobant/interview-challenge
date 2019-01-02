@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class VividseatsService {
@@ -9,11 +9,17 @@ export class VividseatsService {
   constructor(private http:HttpClient) {}
 
   getAllEvents() {
-    const headers = new Headers({'Content-Type': 'application/json', });
     return this.http.get(this.baseUrl + '/events');
   }
 
   insertEvent(event) {
-
+    let headers = new HttpHeaders();
+    headers.append('Content-Type','application/json');
+    headers.append('Accept', 'application/json');
+    headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
+    headers.append('Access-Control-Allow-Origin', '*');
+    return this.http.post(this.baseUrl + '/addEvent',
+      event,
+      {headers: headers});
   }
 }

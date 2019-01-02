@@ -5,19 +5,20 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-7">
       <div class="row">
         <div class="col">
-          <h2>Events list</h2>
-          <hr>
+          <h3>Events list</h3>
+          <hr/>
         </div>
       </div>
+
       <div class="row">
         <div class="col">
-          <div *ngIf="!events">
+          <div *ngIf="events.length === 0">
             <p>No events are loaded.</p>
           </div>
-          <div *ngIf="events">
+          <div *ngIf="events.length > 0">
             <table class="table table-hover">
               <thead class="thead-light">
                 <tr>
@@ -43,12 +44,99 @@
           </div>
         </div>
       </div>
+
       <div class="row">
         <div class="col">
           <button
             type="button"
             class="btn btn-primary"
             (click)="onGetEvents()">Get Events</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-5">
+      <div class="row">
+        <div class="col">
+          <h3>Create event</h3>
+          <hr/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <form
+            #eventForm="ngForm"
+            (ngSubmit)="onSubmitEvent(eventForm)">
+            <div class="form-row">
+              <div class="col-6">
+                <label for="eventName">Event name</label>
+                <input
+                  type="text"
+                  id="eventName"
+                  class="form-control"
+                  ngModel
+                  name="eventName">
+              </div>
+              <div class="col-6">
+                <label for="eventDate">Date</label>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input
+                      class="form-control"
+                      id="eventDate"
+                      name="eventDate"
+                      placeholder="yyyy-mm-dd"
+                      ngModel
+                      ngbDatepicker
+                      #d="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group form-row">
+              <div class="col-6">
+                <label for="venueName">Venue name</label>
+                <input
+                  type="text"
+                  id="venueName"
+                  class="form-control"
+                  ngModel
+                  name="venueName">
+              </div>
+
+              <div class="col-3">
+                <label for="venueName">City</label>
+                <input
+                  type="text"
+                  id="eventCity"
+                  class="form-control"
+                  ngModel
+                  name="eventCity">
+              </div>
+
+              <div class="col-3">
+                <label for="venueName">State</label>
+                <select
+                  id="eventState"
+                  class="form-control custom-select"
+                  ngModel
+                  name="eventState">
+                  <option
+                    *ngFor="let state of states"
+                    [value]="state">{{state}}</option>
+                </select>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-success">Add Event</button>
+          </form>
         </div>
       </div>
     </div>

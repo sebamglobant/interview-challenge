@@ -4,5 +4,5 @@ export class Event {
   id:number;
   name:string;
   date:Date;
-  venue:Venue;
+  venue:Venue = new Venue();
 }
