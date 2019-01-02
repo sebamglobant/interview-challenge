@@ -1,3 +1,7 @@
+#Vivid Seats challenge
+
+# Challenge
+
 Welcome!
 
 Thanks for taking our coding challenge! We'd like for you to implement a basic event management system, from frontend to backend.
@@ -33,3 +37,12 @@ Extra credit:
 On any system with the JDK installed, running the application from the command line should be as simple as './gradlew bootRun'. You may want to leverage an IDE to develop and debug. The application will be available on localhost:8080.
 
 Best of luck!
+
+# how it works
+This project in build with gradle, so can run in the root folder: 
+
+```
+./gradlew bootRun
+```
+
+this command will build all the frontend project (Angular) and serve it in `localhost:8080` with the API under the same url.
