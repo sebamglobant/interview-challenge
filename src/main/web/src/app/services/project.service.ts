@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
-export class VividseatsService {
+export class ProjectService {
 
   private baseUrl:string = 'http://localhost:8080';
 

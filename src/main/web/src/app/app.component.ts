@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VividseatsService } from './services/vividseats.service';
+import { ProjectService } from './services/project.service';
 import { Event } from  '../app/model/event.model'
 import { NgForm } from '@angular/forms';
 
@@ -9,11 +9,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Vivid Seats Challenge';
+  title = 'Interview Challenge';
   events:Event[] = [];
   states:any[];
 
-  constructor(private vividseatsService: VividseatsService){}
+  constructor(private projectService: ProjectService){}
 
   ngOnInit(): void {
     this.onGetEvents();
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   }
 
   onGetEvents() {
-    this.vividseatsService.getAllEvents().subscribe(
+    this.projectService.getAllEvents().subscribe(
       (response: Event[]) => {
         this.events = response;
       },
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
   }
 
   onAddEvent(event: Event) {
-    this.vividseatsService.insertEvent(event).subscribe(
+    this.projectService.insertEvent(event).subscribe(
       (response) => {
         if(response) {
           this.onGetEvents();

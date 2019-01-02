@@ -1,4 +1,4 @@
-# Vivid Seats challenge
+# Interview challenge
 
 # Challenge
 
