@@ -1,5 +1,7 @@
-package com.vivid.partnerships.interview;
+package com.partnerships.interview.utils.db.mappers;
 
+import com.partnerships.interview.model.Event;
+import com.partnerships.interview.model.Venue;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.lang.Nullable;
 

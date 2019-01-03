@@ -1,4 +1,4 @@
-package com.vivid.partnerships.interview;
+package com.partnerships.interview;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

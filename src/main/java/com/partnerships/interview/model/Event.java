@@ -1,4 +1,4 @@
-package com.vivid.partnerships.interview;
+package com.partnerships.interview.model;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.vivid.partnerships.interview;
+package com.partnerships.interview.model;
 
 public class Venue {
     public Integer id;

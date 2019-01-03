@@ -1,3 +1,3 @@
-# Vividseats-challenge-web
+# interview-challenge-web
 
-Vividseats-challenge web project embedded in Spring Boot.
+Web project embedded in Spring Boot.

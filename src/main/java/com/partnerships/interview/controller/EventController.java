@@ -1,5 +1,7 @@
-package com.vivid.partnerships.interview;
+package com.partnerships.interview.controller;
 
+import com.partnerships.interview.model.Event;
+import com.partnerships.interview.services.EventService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

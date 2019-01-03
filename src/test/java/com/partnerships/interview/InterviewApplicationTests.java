@@ -1,4 +1,4 @@
-package com.vivid.partnerships.interview;
+package com.partnerships.interview;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

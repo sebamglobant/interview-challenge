@@ -1,5 +1,7 @@
-package com.vivid.partnerships.interview;
+package com.partnerships.interview.services;
 
+import com.partnerships.interview.utils.db.mappers.EventRowMapper;
+import com.partnerships.interview.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
