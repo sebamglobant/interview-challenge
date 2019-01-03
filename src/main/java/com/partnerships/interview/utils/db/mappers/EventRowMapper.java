@@ -13,16 +13,16 @@ public class EventRowMapper implements RowMapper<Event> {
     @Override
     public Event mapRow(ResultSet resultSet, int rowNum) throws SQLException {
         final Venue venue = new Venue();
-        venue.id = resultSet.getInt("venue_id");
-        venue.name = resultSet.getString("venue_name");
-        venue.city = resultSet.getString("venue_city");
-        venue.state = resultSet.getString("venue_state");
+        venue.setId(resultSet.getInt("venue_id"));
+        venue.setName(resultSet.getString("venue_name"));
+        venue.setCity(resultSet.getString("venue_city"));
+        venue.setState(resultSet.getString("venue_state"));
 
         final Event event = new Event();
-        event.id = resultSet.getInt("id");
-        event.date = resultSet.getDate("date");
-        event.name = resultSet.getString("name");
-        event.venue = venue;
+        event.setId(resultSet.getInt("id"));
+        event.setDate(resultSet.getDate("date"));
+        event.setName(resultSet.getString("name"));
+        event.setVenue(venue);
         return event;
     }
 }

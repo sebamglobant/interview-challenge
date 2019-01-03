@@ -1,10 +1,15 @@
 package com.partnerships.interview.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
+@Getter
+@Setter
 public class Event {
-    public Integer id;
-    public String name;
-    public Date date;
-    public Venue venue;
+    private Integer id;
+    private String name;
+    private Date date;
+    private Venue venue;
 }

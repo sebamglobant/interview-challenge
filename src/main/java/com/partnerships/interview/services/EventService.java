@@ -40,14 +40,14 @@ public class EventService {
             @Override
             public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
                 final PreparedStatement ps = con.prepareStatement(insertVenue, Statement.RETURN_GENERATED_KEYS);
-                ps.setString(1, event.venue.name);
-                ps.setString(2, event.venue.city);
-                ps.setString(3, event.venue.state);
+                ps.setString(1, event.getVenue().getName());
+                ps.setString(2, event.getVenue().getCity());
+                ps.setString(3, event.getVenue().getState());
                 return ps;
             }
         }, keyHolder);
 
         return jdbcTemplate.update("INSERT INTO events(venue_id, name, date) VALUES (?,?,?)",
-            keyHolder.getKey(), event.name, event.date);
+            keyHolder.getKey(), event.getName(), event.getDate());
     }
 }

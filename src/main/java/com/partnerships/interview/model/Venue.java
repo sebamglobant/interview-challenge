@@ -1,8 +1,13 @@
 package com.partnerships.interview.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Venue {
-    public Integer id;
-    public String name;
-    public String city;
-    public String state;
+    private Integer id;
+    private String name;
+    private String city;
+    private String state;
 }
