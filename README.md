@@ -56,3 +56,5 @@ To run the app in a docker container you have to run the following commands on t
 ``` sudo docker build -f ./docker/Dockerfile -t interviewapp:lastest . ```
 3. Run the container
 ``` sudo docker run -d -p 8080:8080 --name interview-container  interviewapp ```
+
+if docker is unable to find image 'interviewapp:latest' locally, run the command again with the image ID instead of `interviewapp` 
