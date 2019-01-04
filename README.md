@@ -53,6 +53,6 @@ To run the app in a docker container you have to run the following commands on t
 1. Generate the .jar file
 ``` ./gradlew bootJar ```
 2. Create the docker image
-``` sudo docker build -f ./docker/Dockerfile -t interviewapp:lastes . ```
+``` sudo docker build -f ./docker/Dockerfile -t interviewapp:lastest . ```
 3. Run the container
 ``` sudo docker run -d -p 8080:8080 --name interview-container  interviewapp ```
