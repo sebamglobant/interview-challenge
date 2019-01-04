@@ -46,3 +46,13 @@ This project in build with gradle, so you can run in the project's root folder:
 ```
 
 this command will build all the frontend project (Angular) and serve it in `localhost:8080` with the API under the same url.
+
+## using docker
+To run the app in a docker container you have to run the following commands on the project's root folder
+
+1. Generate the .jar file
+``` ./gradlew bootJar ```
+2. Create the docker image
+``` sudo docker build -f ./docker/Dockerfile -t interviewapp:lastes . ```
+3. Run the container
+``` sudo docker run -d -p 8080:8080 --name interview-container  interviewapp ```
